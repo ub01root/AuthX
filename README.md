@@ -1,6 +1,6 @@
 # 🔐 AuthX
 
-![Uploading Copilot_20260711_205944.png…]()
+
 
 
 <p align="center">
