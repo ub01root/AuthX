@@ -269,6 +269,32 @@ AuthX can send real-time security notifications to a Discord channel via webhook
 
 ---
 
+## 📊 Statistics
+
+<p align="center">
+  <a href="https://bstats.org/plugin/bukkit/AuthX/32560">
+    <img src="https://bstats.org/signatures/bukkit/AuthX/32560.svg" alt="AuthX bStats" width="400" />
+  </a>
+</p>
+
+| Metric | Value |
+|--------|-------|
+| 🖥️ **Servers** | Live count on [bStats](https://bstats.org/plugin/bukkit/AuthX/32560) |
+| 👥 **Players** | Live count on [bStats](https://bstats.org/plugin/bukkit/AuthX/32560) |
+| 📡 **Online Mode** | Tracked chart |
+| 🎮 **MC Version** | Tracked chart |
+| 🖧 **Server Software** | Tracked chart |
+| 🔌 **Plugin Version** | Tracked chart |
+| ⚙️ **Core Count** | Tracked chart |
+| 💻 **System Arch** | Tracked chart |
+| 🖥️ **Operating System** | Tracked chart |
+| 🌍 **Server Location** | Tracked chart |
+| ☕ **Java Version** | Tracked chart |
+
+> 📈 Full live statistics available at [bstats.org](https://bstats.org/plugin/bukkit/AuthX/32560)
+
+---
+
 ## 🆘 Support
 
 - 🐛 **Issues:** [GitHub Issues](https://github.com/your-repo/AuthX/issues)
