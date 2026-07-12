@@ -1,7 +1,6 @@
 # 🔐 AuthX
 
-
-
+<img src="https://i.postimg.cc/T5LYvzf2/Copilot-20260711-205944.png" />
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=for-the-badge" />
