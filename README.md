@@ -1,6 +1,4 @@
-<p align="center">
- <h1>🔐 AuthX</h1>
-</p>
+<h1 align="center">🔐 AuthX</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=for-the-badge" />
