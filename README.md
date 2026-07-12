@@ -1,5 +1,5 @@
 <p align="center">
-# 🔐 AuthX
+ 🔐 AuthX
 </p>
 
 <p align="center">
