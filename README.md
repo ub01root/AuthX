@@ -1,11 +1,15 @@
-# 🔐 AuthX
-
-<img src="https://i.postimg.cc/T5LYvzf2/Copilot-20260711-205944.png" />
+<p align="center">
+  <img src="https://i.postimg.cc/T5LYvzf2/Copilot-20260711-205944.png" alt="AuthX Banner" width="100%" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Paper-1.21+-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Spigot-1.21+-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Folia-Supported-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/BungeeCord-Supported-yellow?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Velocity-3.x+-purple?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/bStats-32560-purple?style=for-the-badge" />
 </p>
@@ -269,8 +273,8 @@ AuthX can send real-time security notifications to a Discord channel via webhook
 
 ## 🆘 Support
 
-- 🐛 **Issues:** [GitHub Issues](https://github.com/ub01root/AuthX/issues)
-- 💬 **Discord:** [Join our Discord](https://discord.securityx.sbs)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/your-repo/AuthX/issues)
+- 💬 **Discord:** [Join our Discord](https://discord.gg/securityx)
 - 🌐 **Website:** [securityx.sbs](https://securityx.sbs)
 
 ---
