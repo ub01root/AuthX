@@ -1,5 +1,5 @@
 <p align="center">
- 🔐 AuthX
+ <h1>🔐 AuthX</h1>
 </p>
 
 <p align="center">
