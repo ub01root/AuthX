@@ -1,29 +1,24 @@
-<h1 align="center">        
- 🔒 AuthX
-</h1>
+<h1 align="center">🔐 AuthX</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Paper-1.21+-green?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Spigot-1.21+-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Folia-Supported-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/BungeeCord-Supported-yellow?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Velocity-3.x+-purple?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/bStats-32560-purple?style=for-the-badge" />
 </p>
 
 <p align="center">
   <b>Advanced multi-platform authentication plugin for Minecraft servers</b><br>
-  <sub>🔒 Secure • ⚡ Lightweight • 🗄️ Multi-Database • 🌍 Multi-Language • 🌐 Proxy-Ready</sub>
+  <sub>🔒 Secure • ⚡ Lightweight • 🗄️ Multi-Database • 🌍 Multi-Language • 🌐 Proxy-Ready • 🛡️ Anti-Tamper</sub>
 </p>
 
 ---
 
 ## 📖 About
 
-AuthX is a high-performance authentication plugin built for modern Minecraft servers. It provides a complete account security solution with premium verification, anti-bot protection, multi-database support, and seamless proxy integration for networks running Velocity or BungeeCord.
+AuthX is a high-performance authentication plugin built for modern Minecraft servers. It provides a complete account security solution with premium verification, anti-bot protection, multi-database support, Discord 2FA, and seamless proxy integration.
 
 Designed for server owners who need **rock-solid security** without sacrificing performance or usability.
 
@@ -43,7 +38,7 @@ Designed for server owners who need **rock-solid security** without sacrificing 
 
 ### 🎮 Premium Integration
 - ✅ **Premium Auto-Login** — Verified premium players authenticate automatically
-- 🔗 **Premium Linking** — Link cracked + premium accounts via verification code
+- 🔗 **Premium Linking** — Link cracked + premium accounts via `AX-XXXX` verification code
 - 🌐 **Proxy Auto-Detection** — Automatically detects Velocity and BungeeCord
 - 🔄 **UUID Migration** — Seamless UUID migration with LuckPerms permission transfer
 - 📡 **ProtocolLib Support** — Standalone premium verification without a proxy
@@ -79,9 +74,23 @@ Designed for server owners who need **rock-solid security** without sacrificing 
 - ✅ **Join** — Teleport location after successful login
 - 💀 **Respawn** — Custom respawn location for authenticated players
 
+### 📱 Two-Factor Authentication (2FA)
+- 🔐 **TOTP (Authenticator App)** — Google Authenticator, Authy, or any TOTP-compatible app
+- 🤖 **Discord Bot 2FA** — Receive login/verify requests via Discord DM with Accept/Deny buttons
+- ⚙️ **Per-Action Protection** — Enable/disable 2FA separately for login, unregister, and password change
+- 🛡️ **Discord Embeds** — Rich embeds with color, footer, and interactive buttons
+- 📊 **Security Status GUI** — View and configure 2FA protection settings in `/account`
+
+### 🔐 Anti-Tamper Protection
+- 🛡️ **Integrity Verification** — SHA-256 checksums of all class files (auto-generated on first run)
+- 🔍 **Bytecode Scanning** — Detects ProcessBuilder, Runtime.exec, Socket, System.exit, and 20+ threat patterns
+- 🚫 **JavaAssist Detection** — Detects `-javaagent`, instrumentation, and bytecode manipulation libraries
+- 🛑 **Auto-Disable** — Plugin automatically disables when tampering is detected
+- 📋 **Detailed Logging** — Every security violation logged with severity level
+
 ### 👑 Moderation & Administration
 - ⚙️ **Admin GUI** — Full account settings GUI (`/account`)
-- 📋 **Login History** — View last 10 authentication events with IPs
+- 📋 **Login History** — View last 10 authentication events with masked IPs
 - 📱 **2FA / TOTP** — Time-based one-time passwords via authenticator apps
 - 💬 **Discord Webhook Alerts** — Real-time notifications for security events
 - 📝 **Comprehensive Logging** — Every auth event logged to database
@@ -92,6 +101,11 @@ Designed for server owners who need **rock-solid security** without sacrificing 
 - 🎨 Professional startup output with ASCII banner
 - 🌈 Color-coded console messages
 - 🔒 Password filter — prevents sensitive commands from appearing in server logs
+
+### 📦 Build & Obfuscation
+- 🛡️ **yGuard Obfuscation** — Automatic class/method name obfuscation on `mvn clean package`
+- 🔒 **Shaded Dependencies** — HikariCP, JDA, jBCrypt, bStats, OkHttp bundled and relocated
+- 📦 **Self-Contained JAR** — No extra jars needed, drop in `plugins/` and go
 
 ---
 
@@ -106,7 +120,7 @@ Designed for server owners who need **rock-solid security** without sacrificing 
 | `/changepassword <old> <new>` | `/cpw` | 🔄 Change your password |
 | `/unregister <password>` | `/unreg` | 🗑️ Delete your account |
 | `/account` | `/settings`, `/myaccount` | ⚙️ Open account settings GUI |
-| `/premium` | `/prem` | 🎮 Premium account linking (proxy only) |
+| `/premium` | `/prem` | 🎮 Premium account linking |
 | `/premium confirm <code>` | `/prem confirm` | ✅ Confirm premium linking with code |
 | `/axhelp` | `/authxhelp` | ❓ Show all available commands |
 
@@ -166,6 +180,19 @@ proxy:
 two-factor:
   enabled: true
   issuer: AuthX
+  methods:
+    totp:
+      enabled: true
+    discord:
+      enabled: false
+      bot-token: "YOUR_BOT_TOKEN"
+      channel-id: "YOUR_CHANNEL_ID"
+      guild-id: "YOUR_GUILD_ID"
+      protection:
+        login: true
+        unregister: true
+        change-password: true
+        notifications: true
 
 captcha:
   enabled: true
@@ -214,14 +241,50 @@ spawns:
 |-------------|-------------|
 | `%authx_registered%` | ✅ `yes` or ❌ `no` |
 | `%authx_authenticated%` | ✅ `yes` or ❌ `no` |
-| 🔢 `%authx_logins%` | Total login count |
-| 🕐 `%authx_last_login%` | Last login date |
-| 📅 `%authx_registered_date%` | Registration date |
-| 🌐 `%authx_ip%` | Last known IP address |
-| 🎮 `%authx_premium%` | ✅ `yes` or ❌ `no` |
-| 🔄 `%authx_premium_autologin%` | ✅ `yes` or ❌ `no` |
-| 💤 `%authx_session_enabled%` | ✅ `yes` or ❌ `no` |
-| 📱 `%authx_2fa_enabled%` | ✅ `yes` or ❌ `no` |
+| `%authx_logins%` | Total login count |
+| `%authx_last_login%` | Last login date |
+| `%authx_registered_date%` | Registration date |
+| `%authx_ip%` | Last known IP address |
+| `%authx_premium%` | ✅ `yes` or ❌ `no` |
+| `%authx_premium_autologin%` | ✅ `yes` or ❌ `no` |
+| `%authx_session_enabled%` | ✅ `yes` or ❌ `no` |
+| `%authx_2fa_enabled%` | ✅ `yes` or ❌ `no` |
+
+---
+
+## 🛡️ Anti-Tamper System
+
+AuthX includes a built-in anti-tamper system that protects against unauthorized code modification.
+
+### How It Works
+
+| Check | Description | Severity |
+|-------|-------------|----------|
+| **Integrity Verification** | SHA-256 checksums of all `com.authx` class files | CRITICAL (auto-disable) |
+| **Bytecode Scanning** | Detects 20+ suspicious patterns (ProcessBuilder, Runtime.exec, Socket, etc.) | CRITICAL (auto-disable) |
+| **JavaAssist Detection** | Detects `-javaagent`, instrumentation, bytecode manipulation | HIGH/CRITICAL |
+
+### First Run
+
+On first startup, AuthX generates `AUTHX_CHECKSUMS` in the plugin data folder. This file contains SHA-256 hashes of all obfuscated class files and serves as the baseline for future integrity checks.
+
+### Threat Detection
+
+```
+[AuthX Security] Running anti-tamper checks...
+[AuthX Security] All checks PATTERNS DETECTED:
+[AuthX Security] [CRITICAL] Class modified: com/authx/commands/LoginCommand.class
+[AuthX Security] Disabling to prevent potential harm.
+```
+
+### Detected Threats
+
+| Pattern | Severity |
+|---------|----------|
+| `ProcessBuilder`, `Runtime.exec`, `/bin/sh`, `powershell` | CRITICAL |
+| `Socket`, `ServerSocket`, `HttpURLConnection` | HIGH |
+| `System.exit`, `URLClassLoader`, `defineClass` | HIGH |
+| `FileOutputStream`, `Proxy`, `ClassLoader` | MEDIUM |
 
 ---
 
@@ -234,7 +297,7 @@ spawns:
 | 📊 **PlaceholderAPI** | 🟡 Optional | Placeholder expansion |
 | 🎯 **LuckPerms** | 🟡 Optional | UUID migration on premium linking |
 
-> 📦 AuthX ships with HikariCP, jBCrypt, and bStats bundled — no extra jars needed.
+> 📦 AuthX ships with HikariCP, JDA, jBCrypt, bStats, OkHttp, and yGuard obfuscation bundled — no extra jars needed.
 
 ---
 
@@ -255,7 +318,7 @@ AuthX can send real-time security notifications to a Discord channel via webhook
 ## 📋 Requirements
 
 - ☕ Java 21 or higher
-- 🎮 Minecraft server 1.21.1+ (Paper recommended)
+- 🎮 Minecraft server 1.21+ (Paper recommended)
 
 ---
 
@@ -263,11 +326,10 @@ AuthX can send real-time security notifications to a Discord channel via webhook
 
 | Software | Versions | Notes |
 |----------|----------|-------|
-| 📄 **Paper** | 1.21.1 — 1.26+ | ✅ Fully supported (recommended) |
-| 🔧 **Spigot** | 1.21.1 — 1.26+ | ✅ Fully supported |
+| 📄 **Paper** | 1.21 — 1.26+ | ✅ Fully supported (recommended) |
+| 🔧 **Spigot** | 1.21 — 1.26+ | ✅ Fully supported |
 | 🔗 **BungeeCord** | Latest | ✅ Proxy auto-detection & premium linking |
 | ⚡ **Velocity** | 3.0.1 — 3.3.0+ | ✅ Proxy auto-detection & premium linking |
-| 🍃 **Folia** | 1.21.1+ | ⚠️ Partial support (uses Bukkit scheduler compat layer) |
 
 ---
 
@@ -275,17 +337,15 @@ AuthX can send real-time security notifications to a Discord channel via webhook
 
 <p align="center">
   <a href="https://bstats.org/plugin/bukkit/AuthX/32560">
-    <img src="https://bstats.org/signatures/bukkit/AuthX/32560.svg" alt="AuthX bStats" width="400" />
+    <img src="https://img.shields.io/badge/bStats-32560-blue?style=for-the-badge&logo=bstats&logoColor=white" alt="AuthX bStats" />
   </a>
 </p>
-
-> 📈 [View full statistics on bStats](https://bstats.org/plugin/bukkit/AuthX/32560)
 
 ---
 
 ## 🆘 Support
 
-- 🐛 **Issues:** [GitHub Issues](https://github.com/your-repo/AuthX/issues)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/securityx/AuthX/issues)
 - 💬 **Discord:** [Join our Discord](https://discord.gg/securityx)
 - 🌐 **Website:** [securityx.sbs](https://securityx.sbs)
 
