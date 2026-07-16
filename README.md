@@ -297,7 +297,7 @@ On first startup, AuthX generates `AUTHX_CHECKSUMS` in the plugin data folder. T
 | Dependency | Status | Purpose |
 |------------|--------|---------|
 | 📦 **Paper 1.21+** | 🔴 Required | Server platform |
-| 📡 **ProtocolLib 5.3+** | 🟡 Optional | Standalone premium verification |
+| 📡 **ProtocolLib 5.3+** | 🔴 Required | Standalone premium verification |
 | 📊 **PlaceholderAPI** | 🟡 Optional | Placeholder expansion |
 | 🎯 **LuckPerms** | 🟡 Optional | UUID migration on premium linking |
 
