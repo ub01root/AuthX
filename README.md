@@ -1,5 +1,7 @@
 <h1 align="center">🔐 AuthX</h1>
 
+<img width="96" height="96" alt="03071a6e14f91b869e37817354b29091ed2bfbcd_96" src="https://github.com/ub01root/AuthX/blob/main/assets/logo.png?raw=true" />
+
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge" />
