@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/ub01root/AuthX/blob/main/assets/logo.png?raw=true" />
+<img width="360" height="360"src="https://github.com/ub01root/AuthX/blob/main/assets/logo.png?raw=true" />
 </p>
 
 <h1 align="center">🔐 AuthX</h1>
