@@ -1,4 +1,6 @@
-<img align="center" width="120" height="120" src="https://github.com/ub01root/AuthX/blob/main/assets/logo.png?raw=true" />
+<p align="center">
+<img width="120" height="120" src="https://github.com/ub01root/AuthX/blob/main/assets/logo.png?raw=true" />
+</p>
 
 <h1 align="center">🔐 AuthX</h1>
 
