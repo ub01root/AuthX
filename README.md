@@ -85,12 +85,6 @@ Designed for server owners who need **rock-solid security** without sacrificing 
 - 🛡️ **Discord Embeds** — Rich embeds with color, footer, and interactive buttons
 - 📊 **Security Status GUI** — View and configure 2FA protection settings in `/account`
 
-### 🔐 Anti-Tamper Protection
-- 🛡️ **Integrity Verification** — SHA-256 checksums of all class files (auto-generated on first run)
-- 🔍 **Bytecode Scanning** — Detects ProcessBuilder, Runtime.exec, Socket, System.exit, and 20+ threat patterns
-- 🚫 **JavaAssist Detection** — Detects `-javaagent`, instrumentation, and bytecode manipulation libraries
-- 🛑 **Auto-Disable** — Plugin automatically disables when tampering is detected
-- 📋 **Detailed Logging** — Every security violation logged with severity level
 
 ### 👑 Moderation & Administration
 - ⚙️ **Admin GUI** — Full account settings GUI (`/account`)
